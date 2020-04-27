@@ -13,6 +13,7 @@ def subset_checker(set1, set2):
     else:
         return("Neither set is a subset of the other")
 
+'''
 set_A = {0, 1, 2}
 set_B = {0, 1, 2}
 set_C = {0, 1, 2, 3}
@@ -20,7 +21,7 @@ set_D = {0, 1, 4}
 set_E = {4, 5, 6}
 
 #TESTING
-'''
+
 print(subset_checker(set_A, set_B))
 #Expected output: The first set is a non-proper subset of the second set
 print(subset_checker(set_A, set_C))
