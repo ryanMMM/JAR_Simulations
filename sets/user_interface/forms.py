@@ -2,7 +2,7 @@ from django import forms
 
 # define choices user has
 CHOICES = [
-('csv', 'Load csv file'),
+('union', 'Perform union operation'),
 ('own', 'Input your own array (syntax: comma sepparated values, e.g. 1, 2, 3, 4, 5)'),
 ('random', 'Generate random array (syntax: start, end, number of entries, e.g. -5, 5, 7)')
 ]
@@ -23,6 +23,11 @@ class Form(forms.Form):
         widget=forms.TextInput(
             attrs={"class": "form-control", "placeholder": "Your set 2:"}
         ),
+    )
+    choice = forms.MultipleChoiceField(
+            required=True,
+            widget=forms.RadioSelect,
+            choices=CHOICES,
     )
     # radio buttons for ch
     """choice = forms.MultipleChoiceField(
