@@ -35,7 +35,7 @@ def cartesian_product(set1, set2):
 
 def membership(set1, set2, user_input):
     if user_input in set1 and user_input in set2:
-        return(str(user_input) + " is a member of both sets)
+        return(str(user_input) + " is a member of both sets")
     elif user_input in set1:
         return(str(user_input) + " is a member of the Set A")
     elif user_input in set2:
