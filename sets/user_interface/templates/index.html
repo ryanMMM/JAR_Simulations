@@ -7,7 +7,6 @@
     function ShowHideForms() {
         var radio_button = document.getElementById("id_choice_5");
         var user_input = document.getElementById("user_input");
-
         user_input.style.display = radio_button.checked ? "block" : "none";
     }
 </script>
@@ -15,12 +14,15 @@
   <h3>Try the algorithm:</h3>
   <form action="/" method="post" enctype="multipart/form-data")>
       {% csrf_token %}
+      Integer inputs separated by commas
       <div class="form-group">
           {{ form.set1 }}
       </div>
+      Integer inputs separated by commas
       <div class="form-group">
           {{ form.set2 }}
       </div>
+      Choose one of the operations you want to perform
       <div class="form-group">
           {{ form.choice }}
       </div>
