@@ -39,7 +39,7 @@
   {{ return_set }}
   {% if display_diagram == 'true'%}
   <img src="{% static 'user_interface/img/venn.png'%}?{% cache_bust %}">
-
+  <button class="btn btn-primary" onclick="window.location.href='/'">Go back</button>
   {% endif %}
   {% endif %}
 </div>

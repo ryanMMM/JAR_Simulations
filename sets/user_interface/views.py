@@ -34,7 +34,6 @@ def index(request):
             except:
                 context['return_set'] = "Invalid input for the membership operation"
         if generateVennDiagram:
-            print("here")
             setsOperations.venn_diagram_generator(set1, set2)
             context['display_diagram'] = 'true'
         else:
