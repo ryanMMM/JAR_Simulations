@@ -2,26 +2,26 @@ from django import forms
 
 # define choices user has
 CHOICES = [
-('union', 'Perform union operation'),
-('own', 'Input your own array (syntax: comma sepparated values, e.g. 1, 2, 3, 4, 5)'),
-('random', 'Generate random array (syntax: start, end, number of entries, e.g. -5, 5, 7)')
+('union', 'Perform union operation (set of members in set A or B or both)'),
+('intersection', 'Perform intersection operation (set of members in both set A and B)'),
+('difference', 'Perform difference operation (set of members in set A but not in B)'),
+('subset', 'Check whether set A is a (proper) subset of set B')
 ]
 
 # define form that user will complete
 class Form(forms.Form):
-    # user input depending on choice
     set1 = forms.CharField(
         required=True,
         max_length=60,
         widget=forms.TextInput(
-            attrs={"class": "form-control", "placeholder": "Your set 1:"}
+            attrs={"class": "form-control", "placeholder": "Your set A:"}
         ),
     )
     set2 = forms.CharField(
         required=True,
         max_length=60,
         widget=forms.TextInput(
-            attrs={"class": "form-control", "placeholder": "Your set 2:"}
+            attrs={"class": "form-control", "placeholder": "Your set B:"}
         ),
     )
     choice = forms.MultipleChoiceField(
@@ -29,20 +29,8 @@ class Form(forms.Form):
             widget=forms.RadioSelect,
             choices=CHOICES,
     )
-    # radio buttons for ch
-    """choice = forms.MultipleChoiceField(
-            required=True,
-            widget=forms.RadioSelect,
-            choices=CHOICES,
-        )
-    # file upload
-    file = forms.FileField(required=False)
-    # for search only: target element
-    target = forms.CharField(
-        required=True,
-        max_length=60,
-        widget=forms.TextInput(
-            attrs={"class": "form-control", "placeholder": "Target element"}
-        ),
+    venn_diagram = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=[('yes', 'Do you want to display the venn diagram?')],
     )
-    """
