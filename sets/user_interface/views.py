@@ -12,7 +12,6 @@ def index(request):
         set1 = cleanUp(request.POST['set1'])
         set2 = cleanUp(request.POST['set2'])
         choice = request.POST['choice']
-        print(request.POST)
         if 'venn_diagram' in request.POST:
             generateVennDiagram = True
         else:
@@ -23,8 +22,23 @@ def index(request):
             context['return_set'] = set1.intersection(set2)
         elif choice == 'difference':
             context['return_set'] = set1.difference(set2)
-        elif choice == '':
-            pass
+        elif choice == 'subset':
+            context['return_set'] = setsOperations.subset_checker(set1, set2)
+        elif choice == 'cartesian':
+            context['return_set'] = setsOperations.cartesian_product(set1, set2)
+        elif choice == 'member':
+            user_input = request.POST['user_input']
+            try:
+                user_input = int(user_input)
+                context['return_set'] = setsOperations.membership(set1, set2, user_input)
+            except:
+                context['return_set'] = "Invalid input for the membership operation"
+        if generateVennDiagram:
+            print("here")
+            setsOperations.venn_diagram_generator(set1, set2)
+            context['display_diagram'] = 'true'
+        else:
+            context['display_diagram'] = 'false'
     else:
         form = Form()
         context['form'] = Form()

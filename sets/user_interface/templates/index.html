@@ -1,7 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cache_bust %}
 
 {% block page_content %}
+<script type="text/javascript">
+    function ShowHideForms() {
+        var radio_button = document.getElementById("id_choice_5");
+        var user_input = document.getElementById("user_input");
+
+        user_input.style.display = radio_button.checked ? "block" : "none";
+    }
+</script>
 <div class="col-md-4">
   <h3>Try the algorithm:</h3>
   <form action="/" method="post" enctype="multipart/form-data")>
@@ -18,9 +27,21 @@
       <div class="form-group">
           {{ form.venn_diagram }}
       </div>
+      <div class="form-group" style="display: none" id="user_input">
+          {{ form.user_input }}
+      </div>
+      {% if display == 'true'%}
       <button type="submit" class="btn btn-primary">Submit</button>
+      {% endif %}
   </form>
+  {{ static }}
+  {% if display == 'false'%}
   {{ return_set }}
+  {% if display_diagram == 'true'%}
+  <img src="{% static 'user_interface/img/venn.png'%}?{% cache_bust %}">
+
+  {% endif %}
+  {% endif %}
 </div>
 
 
