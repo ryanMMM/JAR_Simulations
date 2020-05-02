@@ -20,11 +20,11 @@ def venn_diagram_generator(set1, set2):
 
 def subset_checker(set1, set2):
     if set1.issubset(set2) and len(set1) == len(set2):
-        return ("The first set is a non-proper subset of the second set")
+        return ("Set A is a non-proper subset of the Set B")
     elif set1.issubset(set2):
-        return("The first set is a proper subset of the second set")
+        return("Set A is a proper subset of the Set B")
     elif set2.issubset(set1):
-        return("The second set is a proper subset of the first set")
+        return("Set B is a proper subset of the Set A")
     else:
         return("Neither set is a subset of the other")
 
