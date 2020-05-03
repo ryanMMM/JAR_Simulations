@@ -2,7 +2,6 @@ from matplotlib_venn import venn2
 from matplotlib import pyplot as plt
 import itertools as ite
 import os
-from termcolor import colored
 
 def venn_diagram_generator(set1, set2, membership_output, operation_choice):
     plt.figure().clear()
