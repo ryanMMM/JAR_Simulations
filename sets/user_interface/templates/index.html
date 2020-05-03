@@ -12,6 +12,7 @@
 </script>
 <div class="col-md-4">
   <h3>Try the algorithm:</h3>
+  {% if display == 'true'%}
   <form action="/" method="post" enctype="multipart/form-data")>
       {% csrf_token %}
       Integer inputs separated by commas
@@ -36,13 +37,13 @@
       <button type="submit" class="btn btn-primary">Submit</button>
       {% endif %}
   </form>
-  {{ static }}
+  {% endif %}
   {% if display == 'false'%}
   {{ return_set }}
   {% if display_diagram == 'true'%}
   <img src="{% static 'user_interface/img/venn.png'%}?{% cache_bust %}">
-  <button class="btn btn-primary" onclick="window.location.href='/'">Go back</button>
   {% endif %}
+  <button class="btn btn-primary" onclick="window.location.href='/'">Go back</button>
   {% endif %}
 </div>
 
