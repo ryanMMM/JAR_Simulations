@@ -24,6 +24,7 @@ def venn_diagram_generator(set1, set2, membership_output, operation_choice):
     else:
         pass
     v = venn2(subsets=(len(venn_a), len(venn_b), len(venn_int)), set_labels=('Set A', 'Set B', 'Intersection'))
+
     if operation_choice == 'intersection' and venn_int:
         v.get_label_by_id('110').set_color('b')
     elif operation_choice == 'union':
@@ -37,7 +38,8 @@ def venn_diagram_generator(set1, set2, membership_output, operation_choice):
     labels = [venn_a_string, venn_b_string, venn_int_string]
     v.get_label_by_id('100').set_text(labels[0])
     v.get_label_by_id('010').set_text(labels[1])
-    v.get_label_by_id('110').set_text(labels[2])
+    if venn_int:
+        v.get_label_by_id('110').set_text(labels[2])
     plt.savefig('user_interface/static/user_interface/img/'+'venn.png')
     plt.savefig('user_interface/img/'+'venn.png')
 
