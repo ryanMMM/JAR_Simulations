@@ -36,7 +36,10 @@ def venn_diagram_generator(set1, set2, membership_output, operation_choice):
     else:
         pass
     labels = [venn_a_string, venn_b_string, venn_int_string]
-    v.get_label_by_id('100').set_text(labels[0])
+    if subset_checker_output == "Neither set is a subset of the other":
+        v.get_label_by_id('100').set_text(labels[0])
+    else:
+        v.get_label_by_id('100').set_text('')
     v.get_label_by_id('010').set_text(labels[1])
     if venn_int:
         v.get_label_by_id('110').set_text(labels[2])
