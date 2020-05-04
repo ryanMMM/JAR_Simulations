@@ -4,6 +4,7 @@ import itertools as ite
 import os
 
 def venn_diagram_generator(set1, set2, membership_output, operation_choice):
+    plt.switch_backend('Agg')
     plt.figure().clear()
     plt.close()
     plt.cla()
