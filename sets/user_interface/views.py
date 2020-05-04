@@ -30,6 +30,7 @@ def index(request):
             user_input = request.POST['user_input']
             try:
                 user_input = int(user_input)
+                print(set1, set2, user_input)
                 context['return_set'] = setsOperations.membership(set1, set2, user_input)
             except:
                 context['return_set'] = "Invalid input for the membership operation"

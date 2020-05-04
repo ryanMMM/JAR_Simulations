@@ -59,23 +59,23 @@ def cartesian_product(set1, set2):
 
 def membership(set1, set2, user_input):
     if user_input in set1 and user_input in set2:
-        index = str(set1.instersection(set2))[1:-1].find(user_input)
-        print(str(user_input) + " is a member of both sets")
-        return [0, index]
+        index = str(set1.intersection(set2))[1:-1].find(str(user_input))
+        return_text = str(user_input) + " is a member of both sets"
+        return ([0, index], return_text)
     # 0 represents intersection, index represents to position of the input in the intersection string
     elif user_input in set1:
-        index = str(set1)[1:-1].find(user_input)
-        print(str(user_input) + " is a member of set A")
-        return [1, index]
+        index = str(set1)[1:-1].find(str(user_input))
+        return_text = str(user_input) + " is a member of set A"
+        return ([1, index], return_text)
     # 1 represents set 1, index represents to position of the input in the set1 string
     elif user_input in set2:
-        index = str(set1)[1:-1].find(user_input)
-        print(str(user_input) + " is a member of set B")
-        return [2, index]
+        index = str(set1)[1:-1].find(str(user_input))
+        return_text = str(user_input) + " is a member of set B"
+        return ([2, index], return_text)
     # 2 represents set 1, index represents to position of the input in the set2 string
     else:
-        print(str(user_input) + " is a not a member of either set")
-        return [None, None]
+        return_text = str(user_input) + " is a not a member of either set"
+        return ([None, None], return_text)
 
 '''
 #testing
